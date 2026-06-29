@@ -1,0 +1,13 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.bak
+*.log
+.DS_Store
+
+# Flask
+flask.log
+
+# Backup
+*_backup*/
