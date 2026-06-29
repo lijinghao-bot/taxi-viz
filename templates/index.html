@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深圳出租车数据分析平台</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.css" />
+<link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+<div id="sidebar">
+  <div class="sidebar-brand"><div class="brand-icon">&#x1F698;</div><div class="brand-text">圳行—深圳出租车<br/><span>数据分析平台</span></div></div>
+  <nav class="sidebar-nav">
+    <a class="nav-link active" data-view="dashboard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>数据总览</span></a>
+    <a class="nav-link" data-view="heatmap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span>热力图</span></a>
+    <a class="nav-link" data-view="map"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>交互地图</span></a>
+    <a class="nav-link" data-view="vehicles"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12h4l3-8 4 16 3-8h4"/></svg><span>车辆排行</span></a>
+  </nav>
+  <div class="sidebar-footer">Spark 清洗 | 1,599,644 条</div>
+</div>
+<div id="main-area">
+  <header id="topbar">
+    <h1 id="view-title">数据总览</h1>
+    <div id="time-control">
+      <button id="t-all" class="t-btn">全天</button>
+      <div id="t-slider-wrap">
+        <input id="t-slider" type="range" min="0" max="23" value="12" />
+        <span id="t-time" class="t-time">12:00</span>
+        <span id="t-period" class="t-period">日间</span>
+      </div>
+      <button id="t-play" class="t-btn">&#9654;</button>
+    </div>
+  </header>
+  <main id="content"></main>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var c=document.getElementById('content');
+  if(c)c.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:80vh;font-family:sans-serif"><div style="text-align:center"><div style="width:40px;height:40px;border:3px solid #e2e8f0;border-top-color:#3b82f6;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px"></div><p style="color:#94a3b8;font-size:13px">加载中...</p></div></div><style>@keyframes spin{to{transform:rotate(360deg)}}</style>';
+});
+</script>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>
